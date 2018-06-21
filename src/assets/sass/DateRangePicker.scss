@@ -1,0 +1,82 @@
+@import 'variables';
+
+$labelWidth: 90px;
+$labelMargin: 10px;
+$labelOffset: $labelWidth + $labelMargin;
+
+*, *:before, *:after { box-sizing: border-box; }
+
+*:focus {
+	outline: none;
+}
+
+%input {
+	line-height: 1.5;
+	padding: 2px 5px;
+	border: 1px solid rgba($brown, .5);
+	color: $brown;
+}
+
+form {
+	margin-top: 30px;
+	max-width: 500px;
+	margin: 30px auto 50px;
+}
+
+.btnBar {
+	margin-top: 20px;
+	text-align: center;
+}
+
+label {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+
+	span {
+		width: $labelWidth;
+		text-align: right;
+		margin-right: $labelMargin;
+		display: inline-block;
+		color: $brown;
+		font-weight: 700;
+	}
+
+	.DayPickerInput {
+		width: calc(100% - #{$labelOffset});
+
+		input {
+			width: 100%;
+			@extend %input;
+		}
+	}
+
+	input {
+		width: calc(100% - #{$labelOffset});
+		@extend %input;
+	}
+
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+	background-color: $yellow !important;
+	color: $brown !important;
+}
+
+.DayPicker-Day {
+	color: $brown !important;
+
+	&:hover {
+		background-color: rgba($yellow, .5) !important;
+	}
+}
+
+.DayPicker-Day--today {
+	color: $yellow;
+}
+
+.DayPicker-Day--outside {
+	&:hover {
+		background-color: #fff !important;
+	}
+}
